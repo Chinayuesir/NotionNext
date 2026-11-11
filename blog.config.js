@@ -101,7 +101,7 @@ const BLOG = {
 
 // Aryue: preserve personal settings from the previous deployment.
 Object.assign(BLOG, {
-  CONTACT_EMAIL: process.env.NEXT_PUBLIC_CONTACT_EMAIL || '578626935@qq.com',
+  CONTACT_EMAIL: btoa(unescape(encodeURIComponent(process.env.NEXT_PUBLIC_CONTACT_EMAIL || '578626935@qq.com'))),
   PRISM_THEME_PATH: 'https://npm.elemecdn.com/prism-themes/themes/prism-vsc-dark-plus.css',
   CODE_MAC_BAR: false,
   COMMENT_TWIKOO_ENV_ID: process.env.NEXT_PUBLIC_COMMENT_ENV_ID || 'https://twiko-aryue.vercel.app',
