@@ -21,16 +21,16 @@ on:
 
 jobs:
   bot:
-    runs-on: ubuntu-latest # 运行环境为最新版的Ubuntu
+    runs-on: ubuntu-24.04 # 固定受支持的运行环境，避免 ubuntu-latest 自动迁移
     steps:
       - name: 'Checkout codes' # 步骤一，获取仓库代码
         uses: actions/checkout@v7
       # - name: 'Run baiduPush' # 步骤二，执行sh命令文件
       #   run: npm install && npm run baiduPush # 运行目录是仓库根目录
-      - name: Set up Python 3.8
+      - name: Set up Python 3.12
         uses: actions/setup-python@v7
         with:
-          python-version: 3.8
+          python-version: '3.12'
 
       - name: Install requests
         run: pip install requests
@@ -58,4 +58,3 @@ jobs:
             echo "请前往 Github Action Secrets 配置 URL:"
             echo "详情参见: 'https://www.ghlcode.cn/fe032806-5362-4d82-b746-a0b26ce8b9d9'"
           fi
-      
